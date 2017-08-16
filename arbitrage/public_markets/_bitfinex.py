@@ -20,25 +20,25 @@ from .market import Market
 class Bitfinex(Market):
     def __init__(self, currency, code):
         super().__init__(currency)
+        self.code = code
         self.update_rate = 20
         self.depth = {'asks': [{'price': 0, 'amount': 0}], 'bids': [
             {'price': 0, 'amount': 0}]}
 
     def update_depth(self):
-        url = "https://api.bitfinex.com/v1/symbols_details"
-
+        url = 'https://api.bitfinex.com/v1/book/%s' % self.code
         response = requests.request("GET", url)
+        raw_depth = response.json()
 
-        print(response.text)
+        self.depth = self.format_depth(raw_depth)
 
-        res = urllib.request.urlopen(
-            'https://api.bitfinex.com/v1/book/bthbtc')
-        jsonstr = res.read().decode('utf8')
-        try:
-            depth = json.loads(jsonstr)
-        except Exception:
-            logging.error("%s - Can't parse json: %s" % (self.name, jsonstr))
-        self.depth = self.format_depth(depth)
+    # override method
+    def sort_and_format(self, l, reverse=False):
+        l.sort(key=lambda x: float(x['price']), reverse=reverse)
+        r = []
+        for i in l:
+            r.append({'price': float(i['price']), 'amount': float(i['amount'])})
+        return r
 
 if __name__ == "__main__":
     market = Bitfinex()

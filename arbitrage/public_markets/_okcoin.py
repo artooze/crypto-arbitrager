@@ -13,7 +13,7 @@ class OKCoin(Market):
         self.subscribe_depth()
 
     def update_depth(self):
-        url = config.ok_depth_url + self.code
+        url = "https://www.okcoin.cn/api/v1/depth.do?symbol=" + self.code
         req = urllib.request.Request(url, headers={
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept": "*/*",

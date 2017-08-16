@@ -55,5 +55,6 @@ download.sh
 *.do
 stata/
 # marketmaker.py
+*.sublime-*
 
 

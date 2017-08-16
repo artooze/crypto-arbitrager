@@ -1,10 +1,5 @@
-import urllib.request
-import urllib.error
-import urllib.parse
-import json
-import logging
-import requests
-from .market import Market
+from ._bitfinex import Bitfinex
+
 
 # https://api.bitfinex.com/v1/symbols_details
 #   {
@@ -17,9 +12,9 @@ from .market import Market
 #     "expiration": "NA"
 #   },
 
-class Bitfinex_BCH_BTC(Market):
+class Bitfinex_BCH_BTC(Bitfinex):
     def __init__(self):
-        super().__init__("BTC")
+        super().__init__("BTC", "bchbtc")
 
 if __name__ == "__main__":
     market = Bitfinex_BCH_BTC()
