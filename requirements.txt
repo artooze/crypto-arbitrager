@@ -1,0 +1,4 @@
+requests
+zmq
+thriftpy
+-e git+https://github.com/philsong/bitfinex.git#egg=bitfinex
