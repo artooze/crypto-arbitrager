@@ -114,6 +114,13 @@ HAOBTC_SECRET_TOKEN = ''
 BITSTAR_API_KEY = ''
 BITSTAR_SECRET_TOKEN = ''
 
+Bitfinex_API_KEY = ''
+Bitfinex_SECRET_TOKEN = ''
+
+Bittrex_API_KEY = ''
+Bittrex_SECRET_TOKEN = ''
+
+
 SUPPORT_ZMQ = True
 ZMQ_HOST = "127.0.0.1"
 ZMQ_PORT = 18031

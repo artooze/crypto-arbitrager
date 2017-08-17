@@ -16,9 +16,9 @@ class TraderBot(BasicBot):
 
         self.clients = {
             # "HaobtcCNY": haobtccny.PrivateHaobtcCNY(config.HAOBTC_API_KEY, config.HAOBTC_SECRET_TOKEN),
-            "OKCoinCNY": okcoincny.PrivateOkCoinCNY(config.OKCOIN_API_KEY, config.OKCOIN_SECRET_TOKEN),
-            "HuobiCNY": huobicny.PrivateHuobiCNY(config.HUOBI_API_KEY, config.HUOBI_SECRET_TOKEN),
-            "BrokerCNY": brokercny.PrivateBrokerCNY(),
+            # "OKCoinCNY": okcoincny.PrivateOkCoinCNY(config.OKCOIN_API_KEY, config.OKCOIN_SECRET_TOKEN),
+            # "HuobiCNY": huobicny.PrivateHuobiCNY(config.HUOBI_API_KEY, config.HUOBI_SECRET_TOKEN),
+            # "BrokerCNY": brokercny.PrivateBrokerCNY(),
         }
 
         self.reverse_profit_thresh = config.reverse_profit_thresh

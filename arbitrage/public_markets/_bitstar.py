@@ -1,4 +1,4 @@
-# Copyright (C) 2016, Philsong <songbohr@gmail.com>
+# Copyright (C) 2017, Philsong <songbohr@gmail.com>
 
 import urllib.request
 import urllib.error
@@ -7,15 +7,14 @@ import json
 from .market import Market
 
 class Bitstar(Market):
-    def __init__(self, currency, code):
-        super().__init__(currency)
-        self.code = code
-        self.update_rate = 1
+    def __init__(self, base_currency, market_currency, pair_code):
+        super().__init__(base_currency, market_currency, pair_code)
+
         self.event = 'bitstar_depth'
         # self.subscribe_depth()
 
     def update_depth(self):
-        url = 'https://www.bitstar.com/api/v1/market/depth/%s?size=50' % self.code
+        url = 'https://www.bitstar.com/api/v1/market/depth/%s?size=50' % self.pair_code
         req = urllib.request.Request(url, headers={
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept": "*/*",

@@ -8,9 +8,9 @@ from .market import Market
 import lib.broker_api as exchange_api
 
 class BrokerCNY(Market):
-    def __init__(self):
-        super().__init__('CNY')
-        self.update_rate = 1
+    def __init__(self, base_currency, market_currency, pair_code):
+        super().__init__(base_currency, market_currency, pair_code)
+
         exchange_api.init_broker()
 
     def update_depth(self):

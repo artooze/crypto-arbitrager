@@ -1,7 +1,5 @@
-import urllib.request
-import urllib.error
-import urllib.parse
-import json
+# Copyright (C) 2017, Philsong <songbohr@gmail.com>
+
 import logging
 import requests
 from .market import Market
@@ -18,16 +16,12 @@ from .market import Market
 #   },
 
 class Bitfinex(Market):
-    def __init__(self, currency, code):
-        super().__init__(currency)
-        self.code = code
-        self.update_rate = 20
-        self.depth = {'asks': [{'price': 0, 'amount': 0}], 'bids': [
-            {'price': 0, 'amount': 0}]}
+    def __init__(self, base_currency, market_currency, pair_code):
+        super().__init__(base_currency, market_currency, pair_code)
 
     def update_depth(self):
-        url = 'https://api.bitfinex.com/v1/book/%s' % self.code
-        response = requests.request("GET", url)
+        url = 'https://api.bitfinex.com/v1/book/%s' % self.pair_code
+        response = requests.request("GET", url, timeout=self.request_timeout)
         raw_depth = response.json()
 
         self.depth = self.format_depth(raw_depth)
@@ -40,6 +34,3 @@ class Bitfinex(Market):
             r.append({'price': float(i['price']), 'amount': float(i['amount'])})
         return r
 
-if __name__ == "__main__":
-    market = Bitfinex()
-    print(market.get_ticker())

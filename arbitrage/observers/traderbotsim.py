@@ -57,6 +57,8 @@ class MockMarket(object):
 
 class TraderBotSim(TraderBot):
     def __init__(self):
+        super().__init__()
+
         self.kraken = MockMarket("kraken", 0.005, 5000) # 0.5% fee
         self.paymium = MockMarket("paymium", 0.005, 5000) # 0.5% fee
         self.bitstamp = MockMarket("bitstamp", 0.005, 5000) # 0.5% fee

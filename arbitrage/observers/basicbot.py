@@ -132,8 +132,8 @@ class BasicBot(Observer):
         self.orders = [x for x in self.orders if not x['id'] == order_id]
 
     def get_orders(self, type):
-        orders = [x for x in self.orders if x['type'] == type]
-        return orders
+        orders_snapshot = [x for x in self.orders if x['type'] == type]
+        return orders_snapshot
 
     def selling_len(self):
         return len(self.get_orders('sell'))

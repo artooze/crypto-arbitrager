@@ -2,3 +2,4 @@ requests
 zmq
 thriftpy
 -e git+https://github.com/philsong/bitfinex.git#egg=bitfinex
+-e git+https://github.com/philsong/python-bittrex.git#egg=python-bittrex

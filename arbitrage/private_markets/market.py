@@ -10,10 +10,12 @@ class Market:
     def __init__(self):
         self.name = self.__class__.__name__
         self.btc_balance = 0.
-        self.eur_balance = 0.
+        self.bch_balance = 0.
         self.usd_balance = 0.
         self.cny_balance = 0.
         self.btc_frozen = 0.
+        self.bch_frozen = 0.
+        self.usd_frozen = 0.
         self.cny_frozen = 0.
         self.fc = FiatConverter()
         self.market = None

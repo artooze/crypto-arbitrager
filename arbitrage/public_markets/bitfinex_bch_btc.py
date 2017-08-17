@@ -1,3 +1,5 @@
+# Copyright (C) 2017, Philsong <songbohr@gmail.com>
+
 from ._bitfinex import Bitfinex
 
 
@@ -14,7 +16,7 @@ from ._bitfinex import Bitfinex
 
 class Bitfinex_BCH_BTC(Bitfinex):
     def __init__(self):
-        super().__init__("BTC", "bchbtc")
+        super().__init__("BTC", "BCH", "bchbtc")
 
 if __name__ == "__main__":
     market = Bitfinex_BCH_BTC()

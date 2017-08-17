@@ -5,12 +5,10 @@ opportunities between each markets. It takes market depth into account.
 
 Currently supported exchanges to get data:
  - Bitstamp (USD)
- - Paymium (EUR)
- - BTC-e (USD, EUR)
+ - BTC-e (USD)
  - Bitfinex (USD)
  - Kraken (USD, EUR)
  - OkCoin (CNY)
- - CampBX (USD)
  - Gemini (USD)
  - BTCC (CNY)
  - Coinbase Exchange (USD)
@@ -21,7 +19,8 @@ Currently supported exchanges to automate trade:
  - OkCoin (CNY)
  - Huobi (CNY)
  - Bitstar (Future)
- - Bitfinex (BCC_BTC)
+ - Bitfinex (BCH_BTC)
+ - Bitfinex (BTC_USD)
 
 
 # WARNING
@@ -63,6 +62,7 @@ To run the opportunity watcher:
 To check your balance on an exchange (also a good way to check your accounts configuration):
 
     $ python3 arbitrage/arbitrage.py -m HaobtcCNY get-balance
+    $ python3 arbitrage/arbitrage.py -m Bitfinex_BCH_BTC get-balance
     $ python3 arbitrage/arbitrage.py -m HaobtcCNY,BitstampUSD get-balance
     $ python3 arbitrage/arbitrage.py -m HaobtcCNY,OkCoinCNY,HuobiCNY get-balance
 

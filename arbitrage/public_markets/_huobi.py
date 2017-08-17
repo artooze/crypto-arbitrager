@@ -7,15 +7,15 @@ import json
 from .market import Market
 
 class Huobi(Market):
-    def __init__(self, currency, code):
-        super().__init__(currency)
-        self.code = code
-        self.update_rate = 1
+    def __init__(self, base_currency, market_currency, pair_code):
+        super().__init__(base_currency, market_currency, pair_code)
+
+
         self.event = 'huobi_depth'
         self.subscribe_depth()
 
     def update_depth(self):
-        url = 'http://api.huobi.com/staticmarket/depth_%s_50.js' % self.code
+        url = 'http://api.huobi.com/staticmarket/depth_%s_50.js' % self.pair_code
         req = urllib.request.Request(url, headers={
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept": "*/*",

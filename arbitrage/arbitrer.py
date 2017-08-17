@@ -45,7 +45,8 @@ class Arbitrer(object):
             except (ImportError, AttributeError) as e:
                 print("%s market name is invalid: Ignored (you should check your config file)" % (market_name))
                 logging.warn("exception import:%s" % e)
-                traceback.print_exc()
+                # traceback.print_exc()
+                
     def init_observers(self, _observers):
         logging.debug("_observers:%s" % _observers)
 
@@ -58,7 +59,7 @@ class Arbitrer(object):
                 self.observers.append(observer)
             except (ImportError, AttributeError) as e:
                 print("%s observer name is invalid: Ignored (you should check your config file)" % (observer_name))
-                print(e)
+                # print(e)
                 
     def get_profit_for(self, mi, mj, kask, kbid):
         if self.depths[kask]["asks"][mi]["price"] >= self.depths[kbid]["bids"][mj]["price"]:
